@@ -18,6 +18,8 @@ import {
   Optional,
   Inject,
   booleanAttribute,
+  Output,
+  EventEmitter,
 } from '@angular/core';
 import {Platform} from '@angular/cdk/platform';
 import {auditTime, takeUntil} from 'rxjs/operators';
@@ -46,6 +48,7 @@ export class CdkTextareaAutosize implements AfterViewInit, DoCheck, OnDestroy {
   private _minRows: number;
   private _maxRows: number;
   private _enabled: boolean = true;
+  private _previousHeight: number | undefined;
 
   /**
    * Value of minRows as of last resize. If the minRows has decreased, the
@@ -104,6 +107,8 @@ export class CdkTextareaAutosize implements AfterViewInit, DoCheck, OnDestroy {
 
     this._cacheTextareaPlaceholderHeight();
   }
+
+  @Output(`cdkResize`) readonly resizeTriggered: EventEmitter<void> = new EventEmitter();
 
   /** Cached height of a textarea with a single row. */
   private _cachedLineHeight: number;
@@ -310,6 +315,10 @@ export class CdkTextareaAutosize implements AfterViewInit, DoCheck, OnDestroy {
     const scrollHeight = this._measureScrollHeight();
     const height = Math.max(scrollHeight, this._cachedPlaceholderHeight || 0);
 
+    if (!force && this._previousHeight !== undefined && this._previousHeight !== height) {
+      this.resizeTriggered.emit();
+    }
+
     // Use the scrollHeight to know how large the textarea *would* be if fit its entire value.
     textarea.style.height = `${height}px`;
 
@@ -323,6 +332,7 @@ export class CdkTextareaAutosize implements AfterViewInit, DoCheck, OnDestroy {
 
     this._previousValue = value;
     this._previousMinRows = this._minRows;
+    this._previousHeight = height;
   }
 
   /**
