@@ -1,3 +1,71 @@
+<a name="17.3.0-rc.0"></a>
+# 17.3.0-rc.0 "silver-shoes" (2024-03-06)
+### cdk
+| Commit | Type | Description |
+| -- | -- | -- |
+| [ef68e3215c](https://github.com/angular/components/commit/ef68e3215c992393934cfe15e358185b4ba8ce8b) | fix | **drag-drop:** resolve helper directives with DI for proper hostDirectives support ([#28633](https://github.com/angular/components/pull/28633)) |
+| [8f60b62c94](https://github.com/angular/components/commit/8f60b62c9482c1e0044a0da57edf31bf29609e6c) | fix | **overlay:** fix overlay margin in isBoundedByLeftViewportEdge ('left-ward') mode ([#28233](https://github.com/angular/components/pull/28233)) |
+### material
+| Commit | Type | Description |
+| -- | -- | -- |
+| [26b376e43e](https://github.com/angular/components/commit/26b376e43e18e9941f44d4d0714696b863250507) | feat | **tooltip:** be able to customize the longpress delay ([#27512](https://github.com/angular/components/pull/27512)) |
+| [979e903020](https://github.com/angular/components/commit/979e903020ec8e23747fa35414708be2c99e7e99) | fix | **autocomplete:** prevent hidden overlay from blocking clicks ([#28677](https://github.com/angular/components/pull/28677)) |
+| [216ae0cca1](https://github.com/angular/components/commit/216ae0cca12d1a9139f0faf0a85fceb157fc2490) | fix | **autocomplete:** requireSelection sometimes not clearing value when editing after selection ([#28628](https://github.com/angular/components/pull/28628)) |
+| [09111d0029](https://github.com/angular/components/commit/09111d00299c7747ed6543d91e257f7224e1119e) | fix | **button-toggle:** Add checkmark indicators with hideSingleSelectionIndicator and hideMultipleSelectionIndicator input and config options ([#28553](https://github.com/angular/components/pull/28553)) |
+| [c20bac78fb](https://github.com/angular/components/commit/c20bac78fbd69734ded68e2c411adb2c2913ce02) | fix | **checkbox:** derive checkmark color from palette |
+| [577d070ffe](https://github.com/angular/components/commit/577d070ffeb637df89879b2fdee261f280530e9a) | fix | **chips:** derive surface color from palette |
+| [a99d8e929f](https://github.com/angular/components/commit/a99d8e929fbf786001b2ba49387c95799359b456) | fix | **core:** mark fields on HasErrorState as nullable ([#28689](https://github.com/angular/components/pull/28689)) |
+| [fa2687f1a8](https://github.com/angular/components/commit/fa2687f1a807f6c80c5d523d6add7b98e597c868) | fix | **datepicker:** always move caret to the end of the start input on backspace ([#28669](https://github.com/angular/components/pull/28669)) |
+| [c72add69a3](https://github.com/angular/components/commit/c72add69a3877f1b805881aa1de1dbfb3b8f5cea) | fix | **datepicker:** datepicker doesn't announce newly selected range in firefox ([#28529](https://github.com/angular/components/pull/28529)) |
+| [24eaa2ed63](https://github.com/angular/components/commit/24eaa2ed6390adc162f06c92c7ee16c839cb7954) | fix | **expansion:** prevent focus from entering the panel while it's animating ([#28646](https://github.com/angular/components/pull/28646)) |
+| [dd97c0eb96](https://github.com/angular/components/commit/dd97c0eb96ab6f9f176340f1dea3ce76e436f452) | fix | **schematics:** add typography and density to custom theme ([#28645](https://github.com/angular/components/pull/28645)) |
+| [b169320777](https://github.com/angular/components/commit/b169320777bf53c4f147032131f6e9ae8f926e37) | fix | **schematics:** don't interrupt ng add if adding the animations module fails ([#28675](https://github.com/angular/components/pull/28675)) |
+| [63a764de61](https://github.com/angular/components/commit/63a764de6147a5c1cb09f388de454eda9ee3414a) | fix | **slide-toggle:** m3 selected track outline ([#28625](https://github.com/angular/components/pull/28625)) |
+| [f6e85844a0](https://github.com/angular/components/commit/f6e85844a0f5c033763b30276bf5525e8330417a) | perf | **form-field:** resolve scrolling performance issues ([#27251](https://github.com/angular/components/pull/27251)) |
+### material-experimental
+| Commit | Type | Description |
+| -- | -- | -- |
+| [c62c578676](https://github.com/angular/components/commit/c62c5786760e5cf37faa6996fdd9200620126f47) | feat | **theming:** provide hook for formatting toke… ([#28660](https://github.com/angular/components/pull/28660)) |
+### multiple
+| Commit | Type | Description |
+| -- | -- | -- |
+| [cfdfa9a672](https://github.com/angular/components/commit/cfdfa9a672c4edd5136edb7054d55eff3debe4e1) | fix | derive all token values from theme ([#28664](https://github.com/angular/components/pull/28664)) |
+
+<!-- CHANGELOG SPLIT MARKER -->
+
+<a name="17.2.2"></a>
+# 17.2.2 "metal-marble" (2024-03-06)
+### cdk
+| Commit | Type | Description |
+| -- | -- | -- |
+| [4af777a189](https://github.com/angular/components/commit/4af777a189ca0bd80a5158dafa3d9cf4f60b6bf2) | fix | **drag-drop:** resolve helper directives with DI for proper hostDirectives support ([#28633](https://github.com/angular/components/pull/28633)) |
+| [94eafc134f](https://github.com/angular/components/commit/94eafc134fdcb27f4d85fa9ad07a44aadd9b393a) | fix | **overlay:** fix overlay margin in isBoundedByLeftViewportEdge ('left-ward') mode ([#28233](https://github.com/angular/components/pull/28233)) |
+### material
+| Commit | Type | Description |
+| -- | -- | -- |
+| [65aaaf3abf](https://github.com/angular/components/commit/65aaaf3abf137a6c7eb0ff6017eb5977602dd774) | fix | **autocomplete:** prevent hidden overlay from blocking clicks ([#28677](https://github.com/angular/components/pull/28677)) |
+| [d08ddaab81](https://github.com/angular/components/commit/d08ddaab818244cdedfe44121dd0d4499587bc46) | fix | **autocomplete:** requireSelection sometimes not clearing value when editing after selection ([#28628](https://github.com/angular/components/pull/28628)) |
+| [5b3210bfda](https://github.com/angular/components/commit/5b3210bfda60b4f9e42b33cb2b06fce2a86706e0) | fix | **checkbox:** derive checkmark color from palette |
+| [fb20320b82](https://github.com/angular/components/commit/fb20320b823eb6a2880d61b25da29aa9e3262d06) | fix | **chips:** derive surface color from palette |
+| [fe01e298a0](https://github.com/angular/components/commit/fe01e298a06fafef21a47f80bd961bd71a7559e9) | fix | **core:** mark fields on HasErrorState as nullable ([#28689](https://github.com/angular/components/pull/28689)) |
+| [afbb34e415](https://github.com/angular/components/commit/afbb34e41570428a7003508b552c39accbc1fc9e) | fix | **datepicker:** always move caret to the end of the start input on backspace ([#28669](https://github.com/angular/components/pull/28669)) |
+| [ec6f8e2e62](https://github.com/angular/components/commit/ec6f8e2e62341647fda7c8e2bbcbe977165a255f) | fix | **datepicker:** datepicker doesn't announce newly selected range in firefox ([#28529](https://github.com/angular/components/pull/28529)) |
+| [ba6e809761](https://github.com/angular/components/commit/ba6e809761cf24efb1037340ca76a336d5ebdcab) | fix | **expansion:** prevent focus from entering the panel while it's animating ([#28646](https://github.com/angular/components/pull/28646)) |
+| [07f5ed9dc6](https://github.com/angular/components/commit/07f5ed9dc6f722cee2941e49ad63f04041a3314d) | fix | **schematics:** add typography and density to custom theme ([#28645](https://github.com/angular/components/pull/28645)) |
+| [6d8160c166](https://github.com/angular/components/commit/6d8160c1660cbf519c8f709ebb05059e7a9a5865) | fix | **schematics:** don't interrupt ng add if adding the animations module fails ([#28675](https://github.com/angular/components/pull/28675)) |
+| [9655ecb872](https://github.com/angular/components/commit/9655ecb87223728af4459157a58eda26c6c9eaf2) | fix | **slide-toggle:** m3 selected track outline ([#28625](https://github.com/angular/components/pull/28625)) ([#28634](https://github.com/angular/components/pull/28634)) |
+| [7d352fbf88](https://github.com/angular/components/commit/7d352fbf886dfaa476ce99440f9f6edc80498077) | perf | **form-field:** resolve scrolling performance issues ([#27251](https://github.com/angular/components/pull/27251)) |
+### material-experimental
+| Commit | Type | Description |
+| -- | -- | -- |
+| [f18ef99785](https://github.com/angular/components/commit/f18ef99785e097ec66f7236d5cfe210ea37e8e52) | feat | **theming:** provide hook for formatting toke… ([#28660](https://github.com/angular/components/pull/28660)) |
+### multiple
+| Commit | Type | Description |
+| -- | -- | -- |
+| [14c055fe07](https://github.com/angular/components/commit/14c055fe0725f6429beabf2be27e3c4486c29164) | fix | derive all token values from theme ([#28664](https://github.com/angular/components/pull/28664)) |
+
+<!-- CHANGELOG SPLIT MARKER -->
+
 <a name="17.3.0-next.0"></a>
 # 17.3.0-next.0 "allanite-apricot" (2024-02-22)
 ### google-maps
