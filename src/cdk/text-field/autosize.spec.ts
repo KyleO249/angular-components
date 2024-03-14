@@ -1,5 +1,5 @@
 import {dispatchFakeEvent} from '../testing/private';
-import {Component, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import {
   waitForAsync,
   ComponentFixture,
@@ -29,6 +29,7 @@ describe('CdkTextareaAutosize', () => {
         AutosizeTextAreaWithValue,
         AutosizeTextareaWithNgModel,
         AutosizeTextareaWithoutAutosize,
+        AutosizeTextareaWithResizeEvent,
       ],
     });
 
@@ -120,6 +121,37 @@ describe('CdkTextareaAutosize', () => {
     expect(textarea.clientHeight)
       .withContext('Expected textarea height not to have changed')
       .toBe(previousHeight);
+  });
+
+  it('should trigger the resize callback listener once based on its content', () => {
+    const fixture = TestBed.createComponent(AutosizeTextareaWithResizeEvent);
+    spyOn(fixture.componentInstance.resizeTriggered, 'emit');
+
+    fixture.detectChanges();
+
+    const textarea = fixture.nativeElement.querySelector('textarea');
+
+    textarea.value = `Test`;
+
+    fixture.detectChanges();
+
+    textarea.value += `And the Raven, never flitting, still is sitting, still is sitting
+    On the pallid bust of Pallas just above my chamber door;
+    And his eyes have all the seeming of a demon's that is dreaming,
+    And the lamp-light o'er him streaming throws his shadow on the floor;
+    And my soul from out that shadow that lies floating on the floor
+    Shall be lifted—nevermore!
+    `;
+
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.resizeTriggered.emit).toHaveBeenCalledTimes(1);
+
+    textarea.value = `Test`;
+
+    fixture.detectChanges();
+
+    expect(fixture.componentInstance.resizeTriggered.emit).toHaveBeenCalledTimes(2);
   });
 
   it('should set a min-height based on minRows', () => {
@@ -433,5 +465,17 @@ class AutosizeTextareaWithNgModel {
   imports: [FormsModule, TextFieldModule],
 })
 class AutosizeTextareaWithoutAutosize {
+  content: string = '';
+}
+
+@Component({
+  template: `<textarea cdkTextareaAutosize (cdkResize)="resizeTriggered.emit()">{{content}}</textarea>`,
+  styles: textareaStyleReset,
+  standalone: true,
+  imports: [FormsModule, TextFieldModule],
+})
+class AutosizeTextareaWithResizeEvent {
+  @Output() readonly resizeTriggered: EventEmitter<void> = new EventEmitter();
+
   content: string = '';
 }
