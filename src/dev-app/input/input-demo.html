@@ -600,6 +600,12 @@
     <h3>Regular &lt;textarea&gt;</h3>
     <textarea class="demo-textarea" cdkTextareaAutosize cdkAutosizeMaxRows="10"></textarea>
 
+    <h3>Regular &lt;textarea&gt; with resize</h3>
+    <div>
+      <textarea class="demo-textarea" cdkTextareaAutosize (cdkResize)="resize()"></textarea>
+      <div *ngIf="resizeEventTriggered">textarea resize triggered</div>
+    </div>
+
     <h3>Regular &lt;textarea&gt; with maxRows and minRows</h3>
     <div>
       <label>minRows<input type="number" #minRows class="demo-rows" (input)="1+1"></label> &nbsp;
@@ -608,14 +614,15 @@
     <textarea class="demo-textarea"
               cdkTextareaAutosize
               [cdkAutosizeMinRows]="parseNumber(minRows.value)"
-              [cdkAutosizeMaxRows]="parseNumber(maxRows.value)"></textarea>
+              [cdkAutosizeMaxRows]="parseNumber(maxRows.value)"
+              (cdkResize)="resize()"></textarea>
     <button type="button" (click)="minRows.value = (parseNumber(minRows.value) - 1) + ''">Decrement minRows</button>
 
     <h3>&lt;textarea&gt; with mat-form-field</h3>
     <div>
       <mat-form-field>
         <mat-label>Autosized textarea</mat-label>
-        <textarea matInput cdkTextareaAutosize cdkAutosizeMaxRows="10"></textarea>
+        <textarea matInput cdkTextareaAutosize cdkAutosizeMaxRows="10" (cdkResize)="resize()"></textarea>
       </mat-form-field>
     </div>
 

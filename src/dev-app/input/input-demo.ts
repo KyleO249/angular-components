@@ -6,7 +6,7 @@
  * found in the LICENSE file at https://angular.io/license
  */
 
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {FormControl, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {
   FloatLabelType,
@@ -75,6 +75,7 @@ export class InputDemo {
   showHidden = false;
   hiddenLabel = 'Label';
   hiddenAppearance: MatFormFieldAppearance = 'outline';
+  resizeEventTriggered = false;
 
   name: string;
   errorMessageExample1: string;
@@ -98,7 +99,7 @@ export class InputDemo {
   fillAppearance: string;
   outlineAppearance: string;
 
-  constructor() {
+  constructor(private ref: ChangeDetectorRef) {
     setTimeout(() => this.delayedFormControl.setValue('hello'), 100);
   }
 
@@ -133,5 +134,13 @@ export class InputDemo {
 
   parseNumber(value: string): number {
     return Number(value);
+  }
+
+  resize() {
+    this.resizeEventTriggered = true;
+    setTimeout(() => {
+      this.resizeEventTriggered = false;
+      this.ref.detectChanges();
+    }, 2500);
   }
 }
